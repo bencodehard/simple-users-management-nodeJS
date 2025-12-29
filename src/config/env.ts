@@ -20,6 +20,7 @@ export const env = {
   redis: {
     host: required(process.env.REDIS_HOST, "REDIS_HOST"),
     port: parseInt(required(process.env.REDIS_PORT, "REDIS_PORT"), 10),
+    username: process.env.REDIS_USERNAME,
     password: required(process.env.REDIS_PASSWORD, "REDIS_PASSWORD"),
     db: parseInt(process.env.REDIS_DB || "0", 10),
   },
