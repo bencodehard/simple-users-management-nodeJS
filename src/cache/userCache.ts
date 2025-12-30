@@ -11,7 +11,11 @@ export const getUserFromCache = async (userId: string): Promise<User | null> => 
   const cacheKey = getUserCacheKey(userId);
 
   const data = await client.get(cacheKey);
-  if (!data) return null;
+  if (!data) {
+  console.log(`[CACHE MISS] user:${userId}`);
+  return null;
+  }
+  console.log(`[CACHE HIT] user:${userId}`);
 
   try {
     return JSON.parse(data) as User;

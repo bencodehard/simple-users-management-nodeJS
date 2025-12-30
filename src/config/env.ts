@@ -24,4 +24,12 @@ export const env = {
     password: required(process.env.REDIS_PASSWORD, "REDIS_PASSWORD"),
     db: parseInt(process.env.REDIS_DB || "0", 10),
   },
+
+  // Auth
+  auth: {
+    jwtSecret: required(process.env.JWT_SECRET, "JWT_SECRET"),
+    jwtExpiresIn: process.env.JWT_EXPIRES_IN || "1h",
+    bcryptSaltRounds: parseInt(process.env.BCRYPT_SALT_ROUNDS || "10", 10),
+  },
+  
 };
